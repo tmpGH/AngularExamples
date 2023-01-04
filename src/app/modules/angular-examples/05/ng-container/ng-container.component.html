@@ -1,0 +1,40 @@
+<p>
+    <button mat-raised-button (click)="toggleShow()" class="btn btn-info input-distance">toggle show</button>
+    <button mat-raised-button (click)="pushItem()" class="btn btn-info input-distance">push item</button>
+    <button mat-raised-button (click)="popItem()" class="btn btn-info input-distance">pop item</button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    <strong>*ngFor</strong> inside <strong>*ngIf</strong> we can use to hide whole table.
+</p>
+<pre>
+    <span><</span>ng-container *ngIf=...>
+        <span><</span>div *ngFor=...>
+</pre>
+<ng-container *ngIf="showAllItems">
+<!-- example: ngClass -->
+    <div *ngFor="let item of someItems; let i = index; let isOdd = odd" [ngClass]="{'selected-row' : !isOdd}">
+        {{i+1}} item
+    </div>
+    <br>
+</ng-container>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    <strong>*ngIf</strong> inside <strong>*ngFor</strong> we can use to hide separate items.
+</p>
+<pre>
+    <span><</span>ng-container *ngFor=...>
+        <span><</span>div *ngIf=...>
+</pre>
+<ng-container *ngFor="let item of someItems; let i = index; let isOdd = odd"
+              >
+    <div *ngIf="item.BooleanProperty || showAllItems" [ngClass]="{'selected-row' : !isOdd}">
+        {{i+1}} item with inner {{item.BooleanProperty}}
+    </div>
+</ng-container>

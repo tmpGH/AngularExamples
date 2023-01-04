@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+.selected-row {
+    background-color: #fafafa;
+}
+
+.input-distance {
+    margin: 2px;
+}
+
+.sidenav-container {
+    width:100%;
+    height:100vh;
+}
+
+.sidenav-content {
+    width:75%;
+    padding:10px;
+}

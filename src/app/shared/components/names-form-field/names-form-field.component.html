@@ -1,0 +1,24 @@
+<details open>
+    <summary>
+        Name's fields
+    </summary>
+    <br/>
+
+    <p>
+        <button mat-raised-button type="button" class="btn btn-info input-distance" (click)="setDefaultNames()">
+            Set default names
+        </button>
+    </p>
+    First name
+    <mat-form-field>
+        <input matInput type="name" name="firstName" class="input-distance"
+            [value]="firstAndSureName.firstName"
+            (change)='firstNameChanged($event)' />
+    </mat-form-field>
+    Surename
+    <mat-form-field>
+        <input matInput type="name" name="surName" class="input-distance"
+            [value]="firstAndSureName.sureName"
+            (change)='sureNameChanged($event)' />
+    </mat-form-field>
+</details>

@@ -1,0 +1,70 @@
+<p>
+    Different ways of passing addresses with params:
+</p>
+<p>
+    [routerLink] = "[]" : <a [routerLink]="[]">place to click</a>
+    <br/>
+    [routerLink] = "['.']" : <a [routerLink]="['.']">place to click</a>
+</p>
+<p>
+    [routerLink] = "['/angular/RoutingInfo']" : <a [routerLink]="['/angular/RoutingInfo']">place to click</a>
+    <br/>
+    [routerLink] = "['/angular/RoutingInfo', 3]" : <a [routerLink]="['/angular/RoutingInfo', 3]">place to click</a>
+    <br/>
+    [routerLink] = "['/angular/RoutingInfo', 3, 'params color']" :
+    <a [routerLink]="['/angular/RoutingInfo', 3, 'params color']">place to click</a>
+    <br/>
+<!-- example: query string in html link -->
+    queryString with fragment "?id=4#some place" :
+    <a routerLink="/angular/RoutingInfo" [queryParams]="{ id:'4' }" [fragment]="'some place'">place to click</a>
+    <br/>
+    queryString "?id=4&color=query%20color" :
+    <a routerLink="/angular/RoutingInfo" [queryParams]="{ id:'4', color:'query color' }">place to click</a>
+    <br/>
+    [routerLink] and queryString and fragment:
+<!-- example: url fragment in html link -->
+    <a [routerLink]="['/angular/RoutingInfo', 3, 'params color']" 
+       [queryParams]="{ id:'4', color:'query color' }" [fragment]="'place on page'">
+        place to click
+    </a>
+</p>
+<p>
+    Destructive links:
+</p>
+<p>
+    [routerLink] = "['RoutingInfo']" : <a [routerLink]="['RoutingInfo']">place to click</a>
+    <br/>
+    [routerLink] = "['.', 3]" : <a [routerLink]="['.', 3]">place to click</a>
+    <br/>
+    [routerLink] = "['..']" : <a [routerLink]="['..']">place to click</a>
+</p>
+
+<mat-divider></mat-divider>
+<br/>
+
+<p>
+    URL (Uniform Resource Locator) elements.
+</p>
+<p>
+    scheme: <i>{{urlScheme}}</i>
+    <br/>
+    host: <i>{{urlHost}}</i>
+    <br/>
+    port: <i>{{urlPort}}</i>
+    <br/>
+    fragment: <i>{{urlFragment}}</i>
+</p>
+<p>
+    path: <i>{{routePath}}</i>
+    <br/>
+    route id: <i>{{routeId}}</i>
+    <br/>
+    route color: <i>{{routeColor}}</i>
+</p>
+<p>
+    queryString: <i>{{queryString}}</i>
+    <br/>
+    query params id: <i>{{queryStringId}}</i>
+    <br/>
+    query params color: <i>{{queryStringColor}}</i>
+</p>

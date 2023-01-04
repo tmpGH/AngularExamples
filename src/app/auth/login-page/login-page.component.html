@@ -1,0 +1,13 @@
+<div class="content">
+    the two rows of buttons are intentional
+    <br>
+    <button mat-raised-button *ngIf="!isLoggedIn; else loggedIn" class="btn btn-primary input-distance" (click)="logIn()">Log in</button>
+    <ng-template #loggedIn>
+        <button mat-raised-button class="btn btn-primary input-distance" (click)="logOut()">Log out</button>
+    </ng-template>
+    <mat-list>
+        <mat-divider></mat-divider>
+    </mat-list>
+    <button mat-raised-button [disabled]="isLoggedIn" class="btn btn-info input-distance" (click)="logIn()">Log in</button>
+    <button mat-raised-button [disabled]="!isLoggedIn" class="btn btn-info input-distance" (click)="logOut()">Log out</button>
+</div>

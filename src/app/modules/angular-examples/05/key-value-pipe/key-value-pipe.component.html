@@ -1,0 +1,17 @@
+<p>
+    Example of binding an object with use of <strong>*ngFor</strong> and <strong>keyvalue</strong> pipe.
+    <br/>
+    It let us pass through all properties inside the object.
+</p>
+<pre>
+    ... *ngFor="let item of someObject | keyvalue" ...
+    <span>{{</span>item.key}} - <span>{{</span>item.value}}
+</pre>
+<p>
+    Result (property with undefined value is invisible because of moustache binding):
+</p>
+<ul>
+    <li *ngFor="let item of someObject | keyvalue; let isOdd = odd" [ngClass]="{'selected-row' : !isOdd}">
+        &nbsp;&nbsp;{{item.key}} - <i>{{item.value}}</i>
+    </li>
+</ul>

@@ -1,0 +1,41 @@
+<p>
+    There are two events: <strong>ngOnChanges</strong> and <strong>ngDoCheck</strong>.
+    Theirs invocations are visible in console window.
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    The <strong>ngDoCheck</strong> happens when component's property changes, but also when content of component's property changes.
+    <br/>
+    We need one basic type property (e.g. string) and one object with inner property.
+</p>
+<p>
+    <button mat-raised-button type="button" class="btn btn-primary input-distance" (click)="changeStringProperty()">change string</button>
+    <br/>
+    <button mat-raised-button type="button" class="btn btn-primary input-distance" (click)="changeComponentOfObject()">change component of object</button>
+</p>
+<p>
+    string property value: <i>{{ stringProperty }}</i>
+    <br/>
+    object's property value: <i>{{ someClass.NumberProperty }}</i>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    The <strong>ngOnChanges</strong> take place when component's property decorated with <strong>@Input</strong> is changed.
+    <br/>
+    We need one embeded component with <strong>@Input</strong> property.
+</p>
+<p>
+    <button mat-raised-button type="button" class="btn btn-primary" (click)="changeObjectProperty()">change object</button>
+</p>
+<p>
+    <strong>@Input</strong> property value: <i>{{ classForOutput ? 'not null' : 'null' }}</i>
+</p>
+<div style="background-color: whitesmoke; padding: 5px">
+    <app-embeded-for-check [someClass]="classForOutput"></app-embeded-for-check>
+</div>

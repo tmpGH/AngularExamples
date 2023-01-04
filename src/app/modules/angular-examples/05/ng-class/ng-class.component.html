@@ -1,0 +1,33 @@
+<p>
+    It's possible to bind an object with boolean properties, named as styles that we use, and control the element's style by setting values of object's properties.
+    <br/>
+    In this example the object
+</p>
+<pre>
+    styleClasses = {{'{'}}
+        red: true,
+        orange: false,
+        yellow: false,
+        green: false,
+        blue: false,
+        navy: false,
+        violet: false
+    };
+</pre>
+<p>
+    is bound by <strong>ngClass</strong> directive:
+</p>
+<pre>
+    ... &#91;ngClass&#93;="styleClasses" ...
+</pre>
+<p>
+    <button mat-raised-button class="btn btn-info input-distance" *ngFor="let color of styleClasses | keyvalue: noOrderPipeFn" (click)="setColor(color.key)">set {{color.key}}</button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<!-- example: keyvalue pipe without sorting of properties -->
+<div style="padding:10px" [ngClass]="styleClasses">
+    place with changed color
+</div>

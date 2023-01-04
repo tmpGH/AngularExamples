@@ -1,0 +1,43 @@
+<p>
+    We can clear form's fields (inputs) by calling <strong>NgForm.resetForm()</strong> method.
+    <br/>
+    In component's code we should define reference to form:
+</p>
+<pre>
+    @ViewChild('myForm') inputForm: NgForm;
+</pre>
+<p>
+    and use mentioned method of this reference
+</p>
+<pre>
+    this.inputForm.resetForm();
+    // the same behavior
+    // this.inputForm.reset();
+</pre>
+<p>
+    Its done by button [ clear (by resetForm) ] . Button [ reset ] brings initial values back.
+</p>
+<p>
+    <button mat-raised-button type="button" class="btn btn-primary input-distance" (click)="resetValues()">
+        reset
+    </button>
+    <button mat-raised-button type="button" class="btn btn-primary input-distance" (click)="clearForm()">
+        clear (by resetForm)
+    </button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<form #myForm="ngForm">
+    <mat-form-field>
+        <input matInput type="text" name="someText" [(ngModel)]="someText" />
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+        <input matInput type="date" name="someDate" [(ngModel)]="someDate" />
+    </mat-form-field>
+    <br/>
+    <input type="range" name="someRange" [(ngModel)]="someRange" min="0" max="10" />
+    <br/>
+</form>

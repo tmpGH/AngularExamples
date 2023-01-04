@@ -1,0 +1,50 @@
+<p>
+    Promise has the code
+</p>
+<pre>
+    new Promise( (resolve, reject) => {{'{'}}
+        if (this.ifResolved) {{'{'}}
+            resolve('promise resolved');
+        {{'}'}} else {{'{'}}
+            reject('promise rejected');
+        {{'}'}}
+    {{'}'}}).then(
+        result => this.resolveValue = result,
+        reject => this.errorValue = reject
+    );
+</pre>
+<br>
+<p>
+    What to do ?
+</p>
+<table>
+    <tr>
+        <td>resolve&nbsp;</td> <td>&nbsp;reject</td>
+    </tr>
+    <tr>
+        <td>
+            <mat-radio-button type="radio" name="resRej" [checked]='ifResolved' (change)="changeIfResolved(true)"></mat-radio-button>
+        </td>
+        <td>
+            <mat-radio-button type="radio" name="resRej" [checked]='!ifResolved' (change)="changeIfResolved(false)"></mat-radio-button>
+        </td>
+    </tr>
+</table>
+<br>
+<p>
+    <button mat-raised-button mat-raised-button class="btn btn-info input-distance" (click)="runPromise()">run Promise</button>
+    <button mat-raised-button mat-raised-button class="btn btn-info input-distance" (click)="resetResults()">clear results</button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    Results are
+    <br/>
+    resolve: {{resolveValue}}
+    <br/>
+    reject: {{errorValue}}
+    <br/>
+</p>
+

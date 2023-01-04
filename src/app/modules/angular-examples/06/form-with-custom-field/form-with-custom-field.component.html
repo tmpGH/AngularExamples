@@ -1,0 +1,13 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" >
+
+    <app-names-form-field [(ngModel)]="names" name="names"></app-names-form-field>
+    <br>
+
+    <mat-divider></mat-divider>
+    <br>
+
+    <p>
+        <button mat-raised-button type="submit" class="btn btn-primary input-distance">Submit</button>
+    </p>
+
+</form>

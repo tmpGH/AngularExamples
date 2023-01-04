@@ -1,0 +1,34 @@
+<form #form1="ngForm">
+    Bound field on the form:
+    <mat-form-field>
+        <input matInput type="text" name="textField" (input)="formsInputChanged()" />
+    </mat-form-field>
+</form>
+Bound field out of the form:
+<mat-form-field>
+    <input matInput type="text" (input)="noFormsInputChanged()" />
+</mat-form-field>
+<p>
+    Results are visible in the console window.
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    Instead of the <strong>[(ngModel)]</strong> we can bind by two attributes:
+    <strong>[ngModel]</strong> and <strong>(ngModelChange)</strong> .
+   <br/>
+   For input field below with binding
+</p>
+<pre>
+    ... [ngModel]="inputValue" (ngModelChange)="ngModelChangeMethod($event)" ...
+</pre>
+<p>
+    results are visible in the console window.
+</p>
+<form #form2="ngForm">
+    <mat-form-field>
+        <input matInput type="text" name="textField" [ngModel]="inputValue" (ngModelChange)="ngModelChangeMethod(form2)" />
+    </mat-form-field>
+</form>

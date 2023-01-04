@@ -1,0 +1,50 @@
+<p>
+    Different ways of passing addresses as arguments of method <strong>router.navigate(...)</strong> :
+</p>
+<p>
+    ['angular/RouterNavigate'] :
+    <button mat-raised-button class="btn btn-info input-distance" (click)="navigateClick0()">click here</button>
+    <br/>
+    ['angular/RouterNavigate', {{'{'}} id: 1, color: 'red color' {{'}'}}] :
+    <button mat-raised-button class="btn btn-info input-distance" (click)="navigateClick1()">click here</button>
+    <br/>
+    ['angular/RouterNavigate', 1, 'red color'] :
+    <button mat-raised-button class="btn btn-info input-distance" (click)="navigateClick2()">click here</button>
+    <br/>
+    ['angular/RouterNavigate'], {{'{'}} queryParams: {{'{'}} id: 4, color: 'blue color' {{'}'}} {{'}'}} :
+    <button mat-raised-button class="btn btn-info input-distance" (click)="navigateClick4()">click here</button>
+    <br/>
+    ['angular/RouterNavigate', 1, 'red color'], {{'{'}} queryParams: {{'{'}} id: 4, color: 'blue color' {{'}'}}, fragment: 'some fragment' {{'}'}} :
+    <button mat-raised-button class="btn btn-info input-distance" (click)="navigateClick5()">click here</button>
+</p>
+<p>
+    Destructive links:
+</p>
+<p>
+    ['../RouterNavigate', 1], {{'{'}} relativeTo: this.route {{'}'}} :
+    <button mat-raised-button class="btn btn-info input-distance" (click)="navigateClick3()">click here</button>
+</p>
+
+<mat-divider></mat-divider>
+<br/>
+
+<p>
+    URL (Uniform Resource Locator) elements.
+</p>
+<p>
+    path: <i>{{routePath}}</i>
+    <br/>
+    route id: <i>{{routeId}}</i>
+    <br/>
+    route color: <i>{{routeColor}}</i>
+</p>
+<p>
+    queryString: <i>{{queryString}}</i>
+    <br/>
+    query params id: <i>{{queryStringId}}</i>
+    <br/>
+    query params color: <i>{{queryStringColor}}</i>
+</p>
+<p>
+    fragment: <i>{{urlFragment}}</i>
+</p>

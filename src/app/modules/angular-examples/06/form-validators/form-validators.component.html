@@ -1,0 +1,56 @@
+<p>
+    For custom validation we need a function that returns <strong>ValidatorFn</strong>, e.g.:
+</p>
+<pre>
+    validatorFactory(requiredText: string): ValidatorFn {{'{'}} ... {{'}'}}
+</pre>
+<p>
+    In template-driven forms we also need directive that implements the <strong>Validator</strong> interface
+    <br/>
+    and has <strong>@Input</strong> with argument text as directive's selector.
+</p>
+<pre>
+    @Directive({{'{'}}
+        selector: '[appWithLetter]',
+        providers: [{{'{'}}
+            provide: NG_VALIDATORS,
+            useExisting: WithLetterDirective,
+            multi: true
+    {{'}'}}]{{'}'}})
+    export class WithLetterDirective implements Validator {{'{'}}
+        validate(control: AbstractControl): ValidationErrors | null {{'{'}} ... {{'}'}}
+        ...
+        @Input('appWithLetter') requiredLetter: string;
+    {{'}'}}
+</pre>
+<p>
+    Last step is to use the above directive in html input:
+</p>
+<pre>
+    ... appWithLetter="z" ... 
+</pre>
+<p>
+    <button mat-raised-button type="button" class="btn btn-info input-distance" (click)="logForm(myForm)">reset form</button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<form #myForm="ngForm">
+    <mat-form-field>
+        <input matInput type="text" class="input-distance" name="someText"
+            [(ngModel)]="someText" #textRef="ngModel" appWithLetter="z" />
+    </mat-form-field>
+    <div *ngIf="textRef.invalid && (textRef.dirty || textRef.touched)">
+<!-- example: show error text from errors collection -->
+        {{textRef.errors?.['appWithLetter']}}
+    </div>
+    <br>
+    <mat-form-field>
+        <input matInput type="search" class="input-distance" name="someOtherText"
+            [(ngModel)]="someOtherText" #otherTextRef="ngModel" appWithLetter="a" />
+     </mat-form-field>
+    <div *ngIf="otherTextRef.invalid && (otherTextRef.dirty || otherTextRef.touched)">
+        {{otherTextRef.errors?.['appWithLetter']}}
+    </div>
+</form>

@@ -1,0 +1,46 @@
+<p>For promises</p>
+<pre>
+    const promises = [];
+    promises.push( new Promise((resolve) => {{'{'}}
+      setTimeout(() => {{'{'}} resolve('promise one'); {{'}'}}, 500);
+    {{'}'}}) );
+    promises.push( new Promise((resolve) => resolve('promise tfu')) );
+    promises.push( new Promise((resolve) => resolve('promise three')) );
+    promises.push( new Promise((resolve) => {{'{'}}
+      setTimeout(() => {{'{'}} resolve('promise four'); {{'}'}}, 300);
+    {{'}'}}) );
+</pre>
+<p>
+    We can use methods
+    <br/>
+    <cite>Promise.all(iterable)</cite> - return all values 
+    <br/>
+    <cite>Promise.race(iterable)</cite> - return one value
+    <br/>
+    <cite>Promise.allSettled(iterable)</cite> - dosen't exist
+    <br/>
+    <cite>Promise.any(iterable)</cite> - dosen't exist
+</p>
+
+<p>
+  <button mat-raised-button class="btn btn-info input-distance" (click)="runPromisesForAll()">run <cite>Promise.all</cite></button>
+  <button mat-raised-button class="btn btn-info input-distance" (click)="runPromisesForAllSettled()">run <cite>Promise.allSettled</cite></button>
+  <button mat-raised-button class="btn btn-info input-distance" (click)="runPromisesForRace()">run <cite>Promise.race</cite></button>
+  <button mat-raised-button class="btn btn-info input-distance" (click)="runPromisesForAny()">run <cite>Promise.any</cite></button>
+  <button mat-raised-button class="btn btn-info input-distance" (click)="resetResults()">clesr results</button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    Results are
+    <br/>
+    for <cite>all</cite> : {{allResults}}
+    <br/>
+    for <cite>allSettled</cite> : {{allSettledResults}}
+    <br/>
+    for <cite>race</cite> : {{raceResults}}
+    <br/>
+    for <cite>any</cite> : {{anyResults}}
+</p>

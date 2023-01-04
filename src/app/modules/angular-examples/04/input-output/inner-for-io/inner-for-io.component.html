@@ -1,0 +1,23 @@
+<p>
+    The inner component has an <strong>@Input</strong> property and an event emitter <strong>@Output</strong>.
+</p>
+<pre>
+    @Input()
+    inputProperty: string;
+    @Output()
+    outputEvent: EventEmitter&lt;string&gt; = new EventEmitter&lt;string&gt;();
+</pre>
+<p>
+    <strong>@Input</strong> property value: <i>{{inputProperty}}</i>
+</p>
+<p>
+    Use of the <strong>@Output</strong> emitter:
+    <br>
+    <mat-form-field>
+        <input matInput class="input-distance" [value]="stringToEmit" (input)="setStringToEmit($event)" />
+    </mat-form-field>
+</p>
+<p>
+    <button mat-raised-button type='button' class="btn btn-info input-distance" (click)="buttonClicked()">emit string</button>
+    <button mat-raised-button type='button' class="btn btn-info input-distance" (click)="clearEmission()">clear emitted string</button>
+</p>

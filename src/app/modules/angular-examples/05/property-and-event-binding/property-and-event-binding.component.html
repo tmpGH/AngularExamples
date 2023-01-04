@@ -1,0 +1,53 @@
+<p>
+    After binding an object by "moustache" binding:
+</p>
+<pre>
+    ... <span>{{</span> objectForBinding <span>}}</span> ...
+</pre>
+<p>
+    , we can see something like below
+</p>
+<pre>
+    {{objectForBinding}}
+</pre>    
+<p>
+    instead of the object value.
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    It's possible to bind a command with an event directly:
+</p>
+<pre>
+    ... (click) = "numberVariable = numberVariable + numberVariable" ...
+</pre>
+<p>
+    When we do an action:
+    <button mat-raised-button type="button" class="btn btn-primary" (click)="numberVariable = numberVariable + numberVariable">multiply number</button>
+</p>
+<p>
+    Result (numberVariable) is: <strong>{{numberVariable}}</strong>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    It's also possible to run change detection by event binding:
+</p>
+<pre>
+    ... (click) = "0" ...
+</pre>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    In component we can reach the html element through <strong>event.target</strong> .
+    <button mat-raised-button type="button" class="btn btn-primary" (click)="changeEventTarget($event)" value="button value">button value</button>
+</p>
+<p>
+    The <strong>event.target</strong>.value is "<i>{{targetValue}}</i>".
+</p>

@@ -1,0 +1,9 @@
+<mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+
+<nav mat-tab-nav-bar>
+    <a mat-tab-link *ngFor="let item of menuItems" routerLinkActive #rla="routerLinkActive" [routerLink]="item.RouterLink" [active]="rla.isActive">
+        {{item.Label}}
+    </a>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,34 @@
+<p>
+    Use of <strong>touched</strong> and <strong>dirty</strong> in form.
+    <br/>
+    It's necessary bind intput field like this:
+</p>
+<pre>
+    ... [(ngModel)]="someText" #someTextRef="ngModel" ...
+</pre>
+<p>
+    and use it like below
+</p>
+<pre>
+    ... *ngIf="someTextRef.dirty" ...
+</pre>
+<p>
+    <button mat-raised-button type="button" class="btn btn-info input-distance" (click)="myForm.resetForm()">reset form</button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<form #myForm="ngForm">
+    <mat-form-field>
+        <input matInput type="text" class="input-distance" [(ngModel)]="someText" #someTextRef="ngModel" name="someText" />
+    </mat-form-field>
+    <div *ngIf="someTextRef.dirty">field dirty</div>
+    <div *ngIf="someTextRef.touched">field touched</div>
+    <br>
+    <mat-form-field>
+        <input matInput type="password" class="input-distance" [(ngModel)]="someOtherText" #someOtherTextRef="ngModel" name="someOtherText" />
+    </mat-form-field>
+    <div *ngIf="someOtherTextRef.dirty">field dirty</div>
+    <div *ngIf="someOtherTextRef.touched">field touched</div>
+</form>

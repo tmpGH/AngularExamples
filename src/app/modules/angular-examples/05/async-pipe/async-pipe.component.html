@@ -1,0 +1,45 @@
+<p>
+    Simple use of <strong>async pipe</strong>.
+</p>
+<p>
+    In component:
+</p>
+<pre>
+    numbers$: Observable<span>&lt;</span>number&gt; = interval(1000);
+</pre>
+<p>
+    In template:
+</p>
+<pre>
+    ... <span>{{</span>numbers$ | async}} ...
+</pre>
+<p>
+    Result numbers (every {{milliseconds}} milliseconds): <strong>{{numbers$ | async}}</strong>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    <strong>Async pipe</strong> with <strong>*ngFor.</strong>
+</p>
+<p>
+    In component:
+</p>
+<pre>
+    this.numbers2$ = this.numbers$.pipe( take(10), toArray() );
+</pre>
+<p>
+    In template:
+</p>
+<pre>
+    ... <span>*</span>ngFor="let number of numbers2$ | async"&gt; <span>{{</span>number}} ...
+</pre>
+<p>
+Result numbers (first {{countToTake}}):
+</p>
+<ul>
+    <li *ngFor="let number of numbers2$ | async; let isOdd = odd" [ngClass]="{'selected-row' : !isOdd}">
+        <i>{{number}}</i>
+    </li>
+</ul>

@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" [opened]="true">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let item of menuItems">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{item.Label}}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-selection-list [multiple]="false">
+                    <mat-list-option [routerLink]="itm.RouterLink" *ngFor="let itm of item.Items" [value]="itm.Label">
+                        {{itm.Label}}
+                    </mat-list-option>                    
+                </mat-selection-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,19 @@
+<p>
+    <strong>ngFor</strong> with <strong>trackBy</strong>
+</p>
+<pre>
+    ... *ngFor="let item of someItems; let i = index; trackBy: trackByMethod" ...
+</pre>
+<p>
+    <button mat-raised-button (click)="pushItem()" class="btn btn-info input-distance">push item</button>
+    <button mat-raised-button (click)="popItem()" class="btn btn-info input-distance">pop item</button>
+</p>
+
+<mat-divider></mat-divider>
+<br>
+
+<ul>
+    <li *ngFor="let item of someItems; let i = index; let isOdd = odd; trackBy: trackByMethod" [ngClass]="{'selected-row' : !isOdd}">
+        {{i+1}} {{item}}
+    </li>
+</ul>

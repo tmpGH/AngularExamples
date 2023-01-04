@@ -1,0 +1,14 @@
+<app-inner-for-io [inputProperty]="propertyForInput" (outputEvent)="eventEmited($event)"></app-inner-for-io>
+
+<mat-divider></mat-divider>
+<br>
+
+<p>
+    The outer component with binding to the property and event of the inner component.
+</p>
+<pre>
+    ... [inputProperty]="propertyForInput" (outputEvent)="eventEmited($event)" ...
+</pre>
+<p>
+    The <strong>@Output</strong> event value: <i>{{receivedEventValue}}</i>
+</p>
