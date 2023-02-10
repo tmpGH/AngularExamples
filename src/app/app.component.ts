@@ -23,9 +23,8 @@ export class AppComponent implements OnInit {
   private CreateMenuItems() {
     this.menuItems = [
         { Label: 'Angular', RouterLink: '/angular' },
-        { Label: 'RxJs', RouterLink: '/rxjs' },
         { Label: 'Promises', RouterLink: '/promises' },
-        { Label: 'Bootstrap', RouterLink: '/bootstrap' },
+        { Label: 'RxJs', RouterLink: '/rxjs' },
         { Label: 'Login page', RouterLink: '/loginPage' }
     ];
   }

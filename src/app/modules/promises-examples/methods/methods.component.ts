@@ -28,7 +28,14 @@ export class MethodsComponent {
   }
 
   runPromisesForAllSettled() {
-    this.allSettledResults = 'there is no allSettled method in Promise';
+    const promises = this.getPromises();
+    Promise.allSettled(promises).then(values =>
+      values.forEach(p =>
+        this.allSettledResults = this.allSettledResults
+          ? this.allSettledResults + p.status + '; '
+          : p.status + '; '
+      )
+    );
   }
 
   runPromisesForRace() {
@@ -37,6 +44,8 @@ export class MethodsComponent {
   }
 
   runPromisesForAny() {
+    //const promises = this.getPromises();
+    //Promise.any(promises).then( (value) => this.anyResults = value );
     this.anyResults = 'there is no "any" method in Promise';
   }
 
@@ -54,7 +63,7 @@ export class MethodsComponent {
     promises.push( new Promise((resolve) => setTimeout(() => {
       progress += 30;
       this.progressBarService.setProgress(progress);
-      resolve('promise tfu');
+      resolve('promise two');
     }, 2000)));
     promises.push( new Promise((resolve) => setTimeout(() => {
       progress += 25;

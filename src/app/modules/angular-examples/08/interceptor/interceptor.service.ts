@@ -24,7 +24,7 @@ export class InterceptorService {
     this.progressService.setProgress(progress);
     const obs = of(1, 2, 3).pipe( delay(3000) )
       .subscribe(
-        res => {
+        () => {
           progress += 30;
           this.progressService.setProgress(progress);
         }

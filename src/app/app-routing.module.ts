@@ -10,6 +10,7 @@ const routes: Routes = [
   {
     path: 'angular',
     canActivate: [ AuthGuardService ],
+    canActivateChild: [ AuthGuardService ],
     loadChildren: () => import('./modules/angular-examples/angular-examples.module').then(m => m.AngularExamplesModule)
   }, {
     path: 'rxjs',
@@ -18,10 +19,6 @@ const routes: Routes = [
     path: 'promises',
     canActivate: [ AuthGuardService ],
     loadChildren: () => import('./modules/promises-examples/promises-examples.module').then(m => m.PromisesExamplesModule)
-  }, {
-    path: 'bootstrap',
-    canActivate: [ AuthGuardService ],
-    loadChildren: () => import('./modules/bootstrap-examples/bootstrap-examples.module').then(m => m.BootstrapExamplesModule)
   }, {
 // example: routing with passing static data
     path: 'notFound',
